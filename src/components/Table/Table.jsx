@@ -3,17 +3,20 @@ import PaginationFooter from '../PaginationFooter/PaginationFooter';
 import './table.css';
 
 export const Table = ({ data = [] }) => {
-  const getPageFromUrl = () => {
-    const params = new URLSearchParams(window.location.search);
-    const page = parseInt(params.get('page'), 10);
-    return isNaN(page) ? 1 : page;
-  };
 
-  const [currentPage, setCurrentPage] = useState(getPageFromUrl());
-  
   const recordsPerPage = 5;
   const totalRecords = data.length;
   const totalPages = Math.ceil(totalRecords / recordsPerPage);
+
+  const getPageFromUrl = () => {
+    const params = new URLSearchParams(window.location.search);
+    let page = parseInt(params.get('page'), 10);
+    page = isNaN(page) ? 1 : page;
+    return Math.min(Math.max(page, 1), totalPages);
+  };
+
+  const [currentPage, setCurrentPage] = useState(getPageFromUrl());
+
   const startIndex = (currentPage - 1) * recordsPerPage;
   const currentRecords = data.slice(startIndex, startIndex + recordsPerPage);
 
