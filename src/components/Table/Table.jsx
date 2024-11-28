@@ -2,6 +2,7 @@ import {useState} from 'react'
 import './table.css'
 
 export const Table = ({data=[]}) => {
+  
   const [currentPage,setCurrentPage]=useState(1);
 
   const recordsPerPage=5;
@@ -17,7 +18,6 @@ export const Table = ({data=[]}) => {
 
   return (
        <div className="table-container">
-      <span>Project Details</span>
       <table className="styled-table-main">
         <thead>
           <tr>

@@ -20,7 +20,7 @@
 }
 
 .styled-table-main th {
-  background-color: #4CAF50;
+  background-color: #333;
   color: white;
 }
 
@@ -46,12 +46,12 @@
 }
 
 .pagination-container button:hover {
-  background-color: #4CAF50;
+  background-color: #333;
   color: white;
 }
 
 .pagination-container button.active {
-  background-color: #4CAF50;
+  background-color: #333;
   color: white;
   font-weight: bold;
 }
