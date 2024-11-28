@@ -26,6 +26,7 @@ export const Table = ({ data = [] }) => {
 
   return (
     <div className="table-container">
+      <div className='table-wrapper'>
       <table className="styled-table-main">
         <thead>
           <tr>
@@ -47,7 +48,7 @@ export const Table = ({ data = [] }) => {
           ))}
         </tbody>
       </table>
-
+      </div>
       <PaginationFooter
         handlePageChange={handlePageChange}
         totalPages={totalPages}
