@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import './table.css';
 import PaginationFooter from '../PaginationFooter/PaginationFooter';
+import './table.css';
 
 export const Table = ({ data = [] }) => {
   const getPageFromUrl = () => {

@@ -1,6 +1,7 @@
 .table-container {
   text-align: center;
   padding: 20px;
+  min-height: 400px; 
 }
 
 .styled-table-main {
