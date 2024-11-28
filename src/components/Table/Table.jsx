@@ -1,11 +1,17 @@
-import {useState} from 'react'
-import './table.css'
+import { useState } from 'react';
+import './table.css';
+import PaginationFooter from '../PaginationFooter/PaginationFooter';
 
-export const Table = ({data=[]}) => {
+export const Table = ({ data = [] }) => {
+  const getPageFromUrl = () => {
+    const params = new URLSearchParams(window.location.search);
+    const page = parseInt(params.get('page'), 10);
+    return isNaN(page) ? 1 : page;
+  };
+
+  const [currentPage, setCurrentPage] = useState(getPageFromUrl());
   
-  const [currentPage,setCurrentPage]=useState(1);
-
-  const recordsPerPage=5;
+  const recordsPerPage = 5;
   const totalRecords = data.length;
   const totalPages = Math.ceil(totalRecords / recordsPerPage);
   const startIndex = (currentPage - 1) * recordsPerPage;
@@ -13,11 +19,13 @@ export const Table = ({data=[]}) => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+    window.history.pushState(null, '', `?page=${page}`);
   };
-  console.log(currentRecords)
+
+
 
   return (
-       <div className="table-container">
+    <div className="table-container">
       <table className="styled-table-main">
         <thead>
           <tr>
@@ -29,27 +37,24 @@ export const Table = ({data=[]}) => {
         <tbody>
           {currentRecords.map((project, index) => (
             <tr key={index}>
-              <td>{project["s.no"]}</td>
-              <td>{project["percentage.funded"]}%</td>
-              <td>{project["amt.pledged"].toLocaleString()} {project["currency"].toUpperCase()}</td>
+              <td>{project['s.no']}</td>
+              <td>{project['percentage.funded']}%</td>
+              <td>
+                {project['amt.pledged'].toLocaleString()}{' '}
+                {project['currency'].toUpperCase()}
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <div className="pagination-container">
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-          <button
-            key={page}
-            onClick={() => handlePageChange(page)}
-            className={currentPage === page ? "active" : ""}
-          >
-            {page}
-          </button>
-        ))}
-      </div>
+      <PaginationFooter
+        handlePageChange={handlePageChange}
+        totalPages={totalPages}
+        currentPage={currentPage}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default Table
+export default Table;
