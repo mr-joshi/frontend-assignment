@@ -9,7 +9,7 @@ function App() {
 
 
 if(error){
-  return  <div>Something Went Wrong</div>
+  return   {error && <div>Something Went Wrong</div>}
 
 }
   return (
@@ -17,7 +17,7 @@ if(error){
      {
       isLoading?
       <Loading/>:
-      <Table data={data}/>
+      <Table/>
      }
     </div>
   );

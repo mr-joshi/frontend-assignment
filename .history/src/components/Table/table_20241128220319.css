@@ -1,0 +1,56 @@
+.table-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.styled-table-main {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 100px;
+}
+
+.styled-table-main th,
+.styled-table-main td {
+  text-align: center;
+  padding: 12px;
+}
+
+.styled-table-main th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.styled-table-main tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.styled-table tr:hover {
+  background-color: #ddd;
+}
+
+.pagination-container {
+  margin: 20px 0;
+}
+
+.pagination-container button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+}
+
+.pagination-container button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination button.active {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}

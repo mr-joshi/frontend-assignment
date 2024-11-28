@@ -4,12 +4,12 @@ import Table from './components/Table/Table';
 import './App.css';
 
 function App() {
-  const url="https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json";
+  const url="https://raw.githubusercontent.com/saaslabsco/frontend-assignment/dassd/heads/master/frontend-assignment.json";
   const {data,isLoading,error}=useApiCall(url);
 
 
 if(error){
-  return  <div>Something Went Wrong</div>
+  return   <div>Something Went Wrong</div>
 
 }
   return (
@@ -17,7 +17,7 @@ if(error){
      {
       isLoading?
       <Loading/>:
-      <Table data={data}/>
+      <Table/>
      }
     </div>
   );

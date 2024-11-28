@@ -17,7 +17,7 @@ if(error){
      {
       isLoading?
       <Loading/>:
-      <Table data={data}/>
+      <Table/>
      }
     </div>
   );

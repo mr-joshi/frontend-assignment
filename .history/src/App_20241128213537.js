@@ -8,16 +8,13 @@ function App() {
   const {data,isLoading,error}=useApiCall(url);
 
 
-if(error){
-  return  <div>Something Went Wrong</div>
 
-}
   return (
     <div className="App">
      {
       isLoading?
       <Loading/>:
-      <Table data={data}/>
+      <Table/>
      }
     </div>
   );
